@@ -1,0 +1,22 @@
+{
+  "name": "coinbase-api",
+  "version": "0.0.1",
+  "description": "Coinbase API",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emilioTe/node-coinbase-api.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "coinbase"
+  ],
+  "author": "Emilio Testa",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/emilioTe/node-coinbase-api/issues"
+  },
+  "dependencies": {
+    "request": "~2.27.0"
+  }
+}
