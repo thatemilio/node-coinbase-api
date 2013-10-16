@@ -14,6 +14,8 @@
 
         h1,h2,h3,h4,h5,h6 { font-weight: normal; }
 
+        h3 { margin-top: 2.5em; }
+
         code, pre { padding: 0.5em; background: #ededed; border-radius: 1px; }
 
         .pure-menu.pure-menu-open {
@@ -74,10 +76,25 @@
             </div>
 
 
+            <div class="section">
+                <h2>Before you get started</h2>
+                <p>Anytime that you see <code>{ ... }</code> in the arguments you need to use the parameters specified by the <a href="https://coinbase.com/api/doc">Coinbase API</a>.</p>
+            </div>
+
+            <hr>
+
             <div id="account-changes" class="section">
                 <h2>Account Changes</h2>
                 <pre>
 coinbase.accountChanges(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.accountChanges({ ... }, function(err, json) {
     if (err) return console.log(err);
 
     console.log(json);
@@ -89,7 +106,7 @@ coinbase.accountChanges(function(err, json) {
             <div id="account" class="section">
                 <h2>Account</h2>
 
-                <h4>.balance(cb)</h4>
+                <h3>.balance(cb)</h3>
                 <pre>
 coinbase.account.balance(function(err, json) {
     if (err) return console.log(err);
@@ -98,145 +115,407 @@ coinbase.account.balance(function(err, json) {
 });
 </pre>
 
-                <h4>.receiveAddress(cb)</h4>
-                <pre></pre>
+                <h3>.receiveAddress(cb)</h3>
+                <pre>
+coinbase.account.receiveAddress(function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.generateReceiveAddress()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
+
+                <h3>.generateReceiveAddress([{ ... }], cb)</h3>
+                <pre>
+coinbase.account.generateReceiveAddress(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.account.generateReceiveAddress({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="addresses" class="section">
                 <h2>Addresses</h2>
-                <pre></pre>
+                <pre>
+coinbase.addresses(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.addresses({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="buttons" class="section">
                 <h2>Buttons</h2>
-                <pre></pre>
+                <pre>
+coinbase.buttons({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="buys" class="section">
                 <h2>Buys</h2>
-                <pre></pre>
+                <pre>
+coinbase.buys({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="contacts" class="section">
                 <h2>Contacts</h2>
-                <pre></pre>
+                <pre>
+coinbase.contacts(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.contacts({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="currencies" class="section">
                 <h2>Currencies</h2>
 
-                <h4>.list()</h4>
-                <pre></pre>
+                <h3>.list(cb)</h3>
+                <pre>
+coinbase.currencies.list(function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.exchangeRates()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
+
+                <h3>.exchangeRates(cb)</h3>
+                <pre>
+coinbase.currencies.exchangeRates(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="orders" class="section">
                 <h2>Orders</h2>
 
-                <h4>.list()</h4>
-                <pre></pre>
+                <h3>.list([{ ... }], cb)</h3>
+                <pre>
+coinbase.orders.list(function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.get()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.orders.list({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.get(id, cb)</h3>
+                <pre>
+coinbase.orders.get(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="prices" class="section">
                 <h2>Prices</h2>
 
-                <h4>.buy()</h4>
-                <pre></pre>
+                <h3>.buy([{ ... }], cb)</h3>
+                <pre>
+coinbase.prices.buy(function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.sell()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.prices.buy({ ... }, function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.spotRate()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
+
+                <h3>.sell([{ ... }], cb)</h3>
+                <pre>
+coinbase.prices.sell(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.prices.sell({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.spotRate([{ ... }], cb)</h3>
+                <pre>
+coinbase.prices.spotRate(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.prices.spotRate({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="recurring-payments" class="section">
                 <h2>Recurring Payments</h2>
 
-                <h4>.list()</h4>
-                <pre></pre>
+                <h3>.list([{ ... }], cb)</h3>
+                <pre>
+coinbase.recurringPayments.list(function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.get()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.recurringPayments.list({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.get(id, cb)</h3>
+                <pre>
+coinbase.recurringPayments.get(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="sells" class="section">
                 <h2>Sells</h2>
-                <pre></pre>
+                <pre>
+coinbase.sells({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="subscribers" class="section">
                 <h2>Subscribers</h2>
 
-                <h4>.list()</h4>
-                <pre></pre>
+                <h3>.list([{ ... }], cb)</h3>
+                <pre>
+coinbase.subscribers.list(function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.get()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.subscribers.list({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.get(id, cb)</h3>
+                <pre>
+coinbase.subscribers.get(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="transactions" class="section">
                 <h2>Transactions</h2>
 
-                <h4>.list()</h4>
-                <pre></pre>
+                <h3>.list([{ ... }], cb)</h3>
+                <pre>
+coinbase.transactions.list(function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.get()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.transactions.list({ ... }, function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.sendMoney()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
 
-                <h4>.requestMoney()</h4>
-                <pre></pre>
+                <h3>.get(id, cb)</h3>
+                <pre>
+coinbase.transactions.get(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.resendRequest()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
 
-                <h4>.cancelRequest()</h4>
-                <pre></pre>
+                <h3>.sendMoney({ ... }, cb)</h3>
+                <pre>
+coinbase.transactions.sendMoney({ ... }, function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.completeRequest()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
+
+                <h3>.requestMoney({ ... }, cb)</h3>
+                <pre>
+coinbase.transactions.requestMoney({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.resendRequest(id, cb)</h3>
+                <pre>
+coinbase.transactions.resendRequest(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.cancelRequest(id, cb)</h3>
+                <pre>
+coinbase.transactions.cancelRequest(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.completeRequest(id, cb)</h3>
+                <pre>
+coinbase.transactions.completeRequest(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="transfers" class="section">
                 <h2>Transfers</h2>
-                <pre></pre>
+                <pre>
+coinbase.transfers(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.transfers({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
 
             <div id="users" class="section">
                 <h2>Users</h2>
 
-                <h4>.create()</h4>
-                <pre></pre>
+                <h3>.create({ ... }, cb)</h3>
+                <pre>
+coinbase.users.create({ ... }, function(err, json) {
+    if (err) return console.log(err);
 
-                <h4>.current()</h4>
-                <pre></pre>
+    console.log(json);
+});
+</pre>
 
-                <h4>.update()</h4>
-                <pre></pre>
+                <h3>.current(cb)</h3>
+                <pre>
+coinbase.users.current(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.update(id, { ... }, cb)</h3>
+                <pre>
+coinbase.users.update(&lt;id&gt;, { ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
 
         </div>
