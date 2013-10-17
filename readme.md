@@ -26,5 +26,5 @@ coinbase.addresses(function(error, data) {
 
 ### api
 
-[Full API specs and examples](https://emilioTe.github.io/node-coinbase-api).
+[Full API specs and examples](http://emilioTe.github.io/node-coinbase-api).
 
