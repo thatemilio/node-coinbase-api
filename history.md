@@ -1,3 +1,7 @@
+### october 21st, 2013 / 0.0.5
+* Added support for `Tokens`
+
+
 ### october 17th, 2013 / 0.0.4
 * Added unit tests for `coinbase.currencies` and `coinbase.prices`
 
