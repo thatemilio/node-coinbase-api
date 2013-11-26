@@ -1,3 +1,7 @@
+### november 25th, 2013 / 0.0.6
+* Removed strict requirement for API key.
+
+
 ### october 21st, 2013 / 0.0.5
 * Added support for `Tokens`
 
