@@ -1,5 +1,6 @@
 ### january 8th, 2014 / 0.1.0
 * Added `createOrder` to `coinbase.buttons`
+* Added `historical` to `coinbase.prices`
 
 
 ### november 25th, 2013 / 0.0.6
