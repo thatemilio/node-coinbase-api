@@ -1,3 +1,7 @@
+### january 8th, 2014 / 0.1.0
+* Added `createOrder` to `coinbase.buttons`
+
+
 ### november 25th, 2013 / 0.0.6
 * Removed strict requirement for API key.
 
