@@ -9,3 +9,11 @@ require("./deps/currencies.js")(keys);
 require("./deps/prices.js")(keys);
 require("./deps/tokens.js")(keys);
 
+
+if (keys.api && keys.secret) {
+
+    require("./deps/account.js")(keys);
+    require("./deps/buttons.js")(keys);
+
+}
+

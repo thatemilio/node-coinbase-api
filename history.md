@@ -1,4 +1,9 @@
-### september 8th, 2014
+### september 9th, 2014 / 0.1.2
+* Fixed `ACCESS_SIGNATURE` error
+* Added additional tests
+
+
+### september 8th, 2014 / 0.1.1
 * Fixed deprecated authorization strategy
 
 
