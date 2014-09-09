@@ -13,7 +13,7 @@ A [node.js](http://nodejs.org) wrapper for the [Coinbase](https://coinbase.com) 
 ### quickstart
 
 ```javascript
-var coinbase = require("coinbase-api")(<your_api_key>);
+var coinbase = require("coinbase-api")({ api: <your_api_key>, secret: <your_api_secret> });
 
 coinbase.addresses(function(error, data) {
     if (error) return console.log(error);
