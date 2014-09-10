@@ -1,3 +1,7 @@
+### september 10th, 2014 / 0.2.1
+* Fixed erroneous argument in `Buttons.orders`
+
+
 ### september 10th, 2014 / 0.2.0
 * Removed deprecated `Account` endpoint
 * Added `Accounts` endpoint
