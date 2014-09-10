@@ -1,12 +1,13 @@
 {
   "name": "coinbase-api",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Coinbase API",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/emilioTe/node-coinbase-api.git"
   },
+  "homepage": "http://emiliote.github.io/node-coinbase-api",
   "keywords": [
     "bitcoin",
     "coinbase"
