@@ -33,6 +33,11 @@ module.exports = function(keys) {
         describe(".createOrder(code, cb)", function() {
             it("should return `success` as true");
         });
+
+
+        describe(".orders(code, cb)", function() {
+            it("should return an array of orders");
+        });
   
   });
 

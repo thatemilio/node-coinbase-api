@@ -6,6 +6,7 @@
 * Updated `Buttons` to include the `orders` endpoint
 * Added `Payment Methods` endpoint
 * Added `Reports` endpoint
+* Added additional tests
 
 
 ### september 9th, 2014 / 0.1.2

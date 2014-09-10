@@ -12,8 +12,12 @@ require("./deps/tokens.js")(keys);
 
 if (keys.api && keys.secret) {
 
-    require("./deps/account.js")(keys);
+    require("./deps/accounts.js")(keys);
     require("./deps/buttons.js")(keys);
+    require("./deps/oauth.js")(keys);
+    require("./deps/authorization.js")(keys);
+    require("./deps/payment-methods.js")(keys);
+    require("./deps/reports.js")(keys);
 
 }
 
