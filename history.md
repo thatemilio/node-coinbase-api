@@ -1,3 +1,13 @@
+### / 0.2.0
+* Removed deprecated `Account` endpoint
+* Added `Accounts` endpoint
+* Added `Oauth Applications` endpoint
+* Added `Authorization` endpoint
+* Updated `Buttons` to include the `orders` endpoint
+* Added `Payment Methods` endpoint
+* Added `Reports` endpoint
+
+
 ### september 9th, 2014 / 0.1.2
 * Fixed `ACCESS_SIGNATURE` error
 * Added additional tests
