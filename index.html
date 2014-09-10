@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>node-coinbase-api (0.1.2)</title>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <title>node-coinbase-api (0.2.0)</title>
+    <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
     <style>
         body, .pure-g [class *= "pure-u"] {
-            font-family: "Open Sans", sans-serif;
+            font-family: "Questrial", sans-serif;
             font-weight: 300;
             font-size: 14px;
         }
@@ -18,7 +19,7 @@
 
         a { color: #348EDA; }
 
-        code, pre { padding: 0.5em; background: #ededed; border-radius: 1px; }
+        code, pre { font-family: "Source Code Pro"; padding: 0.5em; background: #ededed; border-radius: 1px; }
 
         .pure-menu.pure-menu-open {
             border: 0;
@@ -43,19 +44,23 @@
     <div class="pure-g">
         <div class="pure-u-1-4">
             <div class="pure-menu pure-menu-open">
-                <a href="/node-coinbase-api" class="pure-menu-heading">node-coinbase-api (0.1.2)</a>
+                <a href="/node-coinbase-api" class="pure-menu-heading">node-coinbase-api (0.2.0)</a>
 
                 <ul>
                     <li><a href="#account-changes">Account Changes</a></li>
-                    <li><a href="#account">Account</a></li>
+                    <li><a href="#accounts">Accounts</a></li>
                     <li><a href="#addresses">Addresses</a></li>
+                    <li><a href="#authorization">Authorization</a></li>
                     <li><a href="#buttons">Buttons</a></li>
                     <li><a href="#buys">Buys</a></li>
                     <li><a href="#contacts">Contacts</a></li>
                     <li><a href="#currencies">Currencies</a></li>
+                    <li><a href="#oauth">OAuth Applications</a></li>
                     <li><a href="#orders">Orders</a></li>
+                    <li><a href="#payment-methods">Payment Methods</a></li>
                     <li><a href="#prices">Prices</a></li>
                     <li><a href="#recurring-payments">Recurring Payments</a></li>
+                    <li><a href="#reports">Reports</a></li>
                     <li><a href="#sells">Sells</a></li>
                     <li><a href="#subscribers">Subscribers</a></li>
                     <li><a href="#tokens">Tokens</a></li>
@@ -88,6 +93,7 @@
 
             <hr>
 
+            <!-- #account-changes -->
             <div id="account-changes" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/account_changes.html" target="_blank">Account Changes</a></h2>
                 <pre>
@@ -106,32 +112,16 @@ coinbase.accountChanges({ ... }, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#account-changes -->
 
 
-            <div id="account" class="section">
-                <h2><a href="https://coinbase.com/api/doc/1.0/accounts.html" target="_blank">Account</a></h2>
+            <!-- #accounts -->
+            <div id="accounts" class="section">
+                <h2><a href="https://coinbase.com/api/doc/1.0/accounts.html" target="_blank">Accounts</a></h2>
 
-                <h3>.balance(cb)</h3>
+                <h3>.list([{ ... },] cb)</h3>
                 <pre>
-coinbase.account.balance(function(err, json) {
-    if (err) return console.log(err);
-
-    console.log(json);
-});
-</pre>
-
-                <h3>.receiveAddress(cb)</h3>
-                <pre>
-coinbase.account.receiveAddress(function(err, json) {
-    if (err) return console.log(err);
-
-    console.log(json);
-});
-</pre>
-
-                <h3>.generateReceiveAddress([{ ... }], cb)</h3>
-                <pre>
-coinbase.account.generateReceiveAddress(function(err, json) {
+coinbase.accounts.list({ page: 2 }, function(err, json) {
     if (err) return console.log(err);
 
     console.log(json);
@@ -139,15 +129,62 @@ coinbase.account.generateReceiveAddress(function(err, json) {
 </pre>
                 <p>or</p>
                 <pre>
-coinbase.account.generateReceiveAddress({ ... }, function(err, json) {
+coinbase.accounts.list(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.balance(id, cb)</h3>
+                <pre>
+coinbase.account.balance(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.create({ ... }, cb)</h3>
+                <pre>
+coinbase.accounts.create({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.update(id, { ... }, cb)</h3>
+                <pre>
+coinbase.accounts.update(&lt;id&gt;, { ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.primary(id, cb)</h3>
+                <pre>
+coinbase.accounts.primary(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.del(id, cb)</h3>
+                <pre>
+coinbase.accounts.del(&lt;id&gt;, function(err, json) {
     if (err) return console.log(err);
 
     console.log(json);
 });
 </pre>
             </div>
+            <!-- /#accounts -->
 
 
+            <!-- #addresses -->
             <div id="addresses" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/addresses.html" target="_blank">Addresses</a></h2>
                 <pre>
@@ -166,8 +203,24 @@ coinbase.addresses({ ... }, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#addresses -->
 
 
+            <!-- #authorization -->
+            <div id="authorization" class="section">
+                <h2><a href="https://coinbase.com/api/doc/1.0/authorization.html" target="_blank">Authorization</a></h2>
+                <pre>
+coinbase.authorization(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+            </div>
+            <!-- /#authorization -->
+
+
+            <!-- #buttons -->
             <div id="buttons" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/buttons.html" target="_blank">Buttons</a></h2>
 
@@ -188,9 +241,20 @@ coinbase.buttons.createOrder(&lt;code&gt;, function(err, json) {
     console.log(json);
 });
 </pre>
+
+                <h3>.orders(code, cb)</h3>
+                <pre>
+coinbase.buttons.orders(&lt;code&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
             </div>
+            <!-- /#buttons -->
 
 
+            <!-- #buys -->
             <div id="buys" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/buys.html" target="_blank">Buys</a></h2>
                 <pre>
@@ -201,8 +265,10 @@ coinbase.buys({ ... }, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#buys -->
 
 
+            <!-- #contacts -->
             <div id="contacts" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/contacts.html" target="_blank">Contacts</a></h2>
                 <pre>
@@ -221,8 +287,10 @@ coinbase.contacts({ ... }, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#contacts -->
 
 
+            <!-- #currencies -->
             <div id="currencies" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/currencies.html" target="_blank">Currencies</a></h2>
 
@@ -244,8 +312,52 @@ coinbase.currencies.exchangeRates(function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#currencies -->
 
 
+            <!-- #oauth -->
+            <div id="oauth" class="section">
+                <h2><a href="https://coinbase.com/api/doc/1.0/applications.html" target="_blank">Oauth Applications</a></h2>
+
+                <h3>.list([{ ... },] cb)</h3>
+                <pre>
+coinbase.oauth.list({ page: 2 }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.oauth.list(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.get(id, cb)</h3>
+                <pre>
+coinbase.oauth.get(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.create({ ... }, cb)</h3>
+                <pre>
+coinbase.oauth.create({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+            </div>
+            <!-- /#oauth -->
+
+
+            <!-- #orders -->
             <div id="orders" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/orders.html" target="_blank">Orders</a></h2>
 
@@ -275,8 +387,25 @@ coinbase.orders.get(&lt;id&gt;, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#orders -->
 
 
+            <!-- #payment-methods -->
+            <div id="payment-methods" class="section">
+                <h2><a href="https://coinbase.com/api/doc/1.0/payment_methods.html" target="_blank">Payment Methods</a></h2>
+
+                <pre>
+coinbase.paymentMethods(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+            </div>
+            <!-- /#payment-methods -->
+
+
+            <!-- #prices -->
             <div id="prices" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/prices.html" target="_blank">Prices</a></h2>
 
@@ -348,8 +477,10 @@ coinbase.prices.historical(&lt;page&gt;, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#prices -->
 
 
+            <!-- #recurring-payments -->
             <div id="recurring-payments" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/recurring_payments.html" target="_blank">Recurring Payments</a></h2>
 
@@ -379,8 +510,52 @@ coinbase.recurringPayments.get(&lt;id&gt;, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#recurring-payments -->
 
 
+            <!-- #reports -->
+            <div id="reports" class="section">
+                <h2><a href="https://coinbase.com/api/doc/1.0/reports.html" target="_blank">Reports</a></h2>
+
+                <h3>.list([{ ... },] cb)</h3>
+                <pre>
+coinbase.reports.list({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+                <p>or</p>
+                <pre>
+coinbase.reports.list(function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.create({ ... }, cb)</h3>
+                <pre>
+coinbase.reports.create({ ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.get(id, cb)</h3>
+                <pre>
+coinbase.reports.get(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+            </div>
+            <!-- /#reports -->
+
+
+            <!-- #sells -->
             <div id="sells" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/sells.html" target="_blank">Sells</a></h2>
                 <pre>
@@ -391,8 +566,10 @@ coinbase.sells({ ... }, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#sells -->
 
 
+            <!-- #subscribers -->
             <div id="subscribers" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/subscribers.html" target="_blank">Subscribers</a></h2>
 
@@ -422,8 +599,10 @@ coinbase.subscribers.get(&lt;id&gt;, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#subscribers -->
 
 
+            <!-- #tokens -->
             <div id="tokens" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/tokens.html" target="_blank">Tokens</a></h2>
 
@@ -445,8 +624,10 @@ coinbase.tokens.redeem(&lt;token_id&gt;, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#tokens -->
 
 
+            <!-- #transactions -->
             <div id="transactions" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/transactions.html" target="_blank">Transactions</a></h2>
 
@@ -521,8 +702,10 @@ coinbase.transactions.completeRequest(&lt;id&gt;, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#transactions -->
 
 
+            <!-- #transfers -->
             <div id="transfers" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/transfers.html" target="_blank">Transfers</a></h2>
                 <pre>
@@ -541,8 +724,10 @@ coinbase.transfers({ ... }, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#transfers -->
 
 
+            <!-- #users -->
             <div id="users" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/users.html" target="_blank">Users</a></h2>
 
@@ -573,6 +758,7 @@ coinbase.users.update(&lt;id&gt;, { ... }, function(err, json) {
 });
 </pre>
             </div>
+            <!-- /#users -->
 
         </div>
     </div>
