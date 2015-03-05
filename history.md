@@ -1,3 +1,7 @@
+### march 5th, 2015 / 0.3.1
+* Fixed `Transactions.list()` error when using only a `Function`
+
+
 ### march 5th, 2015 / 0.3.0
 * Added the following methods to `Accounts` endpoint ( [chevdor](https://github.com/chevdor) )
   * `get`
