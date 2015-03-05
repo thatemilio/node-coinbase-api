@@ -1,6 +1,6 @@
 {
   "name": "coinbase-api",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Coinbase API",
   "main": "lib/index.js",
   "repository": {

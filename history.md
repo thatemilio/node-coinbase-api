@@ -1,3 +1,9 @@
+### march 5th, 2015 / 0.3.0
+* Added the folowing methods to `Accounts` endpoint ( [chevdor](https://github.com/chevdor) )
+  * `get`
+  * `createAddress`
+
+
 ### september 10th, 2014 / 0.2.1
 * Fixed erroneous argument in `Buttons.orders`
 
