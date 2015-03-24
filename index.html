@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>node-coinbase-api (0.2.1)</title>
+    <title>node-coinbase-api (0.3.1)</title>
     <link href='http://fonts.googleapis.com/css?family=Questrial' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
@@ -44,7 +44,7 @@
     <div class="pure-g">
         <div class="pure-u-1-4">
             <div class="pure-menu pure-menu-open">
-                <a href="/node-coinbase-api" class="pure-menu-heading">node-coinbase-api (0.2.1)</a>
+                <a href="/node-coinbase-api" class="pure-menu-heading">node-coinbase-api (0.3.1)</a>
 
                 <ul>
                     <li><a href="#account-changes">Account Changes</a></li>
@@ -118,6 +118,24 @@ coinbase.accountChanges({ ... }, function(err, json) {
             <!-- #accounts -->
             <div id="accounts" class="section">
                 <h2><a href="https://coinbase.com/api/doc/1.0/accounts.html" target="_blank">Accounts</a></h2>
+
+                <h3>.get(id, cb)</h3>
+                <pre>
+coinbase.accounts.get(&lt;id&gt;, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
+
+                <h3>.createAddress(id, { ... }, cb)</h3>
+                <pre>
+coinbase.accounts.createAddress(&lt;id&gt;, { ... }, function(err, json) {
+    if (err) return console.log(err);
+
+    console.log(json);
+});
+</pre>
 
                 <h3>.list([{ ... },] cb)</h3>
                 <pre>
